@@ -136,7 +136,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = ''
-MEDIA_ROOT = os.path.join(BASE_DIR, 'certificates/')
+MEDIA_ROOT = os.path.join(BASE_DIR, '')
 
 
 # Default primary key field type
