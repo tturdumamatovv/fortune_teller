@@ -15,10 +15,9 @@ class CertificateSerializer(serializers.ModelSerializer):
 
 
 class ServiceSerializer(serializers.ModelSerializer):
-    comments = CommentSerializer(many=True, read_only=True)
     certificates = CertificateSerializer(many=True, read_only=True)
-    additional_texts = serializers.ListField(child=serializers.CharField(), source='get_additional_texts_list')
+    additional_text = serializers.ListField(child=serializers.CharField(), source='get_additional_texts_list')
 
     class Meta:
         model = Service
-        fields = ['id', 'title', 'main_text', 'additional_texts', 'comments', 'certificates']
+        fields = ['id', 'title', 'main_text','additional_texts', 'additional_text', 'certificates']

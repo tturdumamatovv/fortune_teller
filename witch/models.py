@@ -7,6 +7,9 @@ class Service(models.Model):
     main_text = models.TextField()
     additional_texts = models.TextField(blank=True)
 
+    def get_additional_texts_list(self):
+        return list(self.additionaltext_set.values_list('text', flat=True))
+
 
 class AdditionalText(models.Model):
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
@@ -14,7 +17,6 @@ class AdditionalText(models.Model):
 
 
 class Comment(models.Model):
-    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=50)
     text = models.TextField()
 
